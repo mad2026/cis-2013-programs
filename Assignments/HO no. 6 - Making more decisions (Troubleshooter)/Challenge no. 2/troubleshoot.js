@@ -24,9 +24,36 @@ var fixPrinter = function() {
     var boolRecognised = $("not_recognised").selected;  ////returns a value of true only when the not_recognized html id is selected from the dropdown menu
 
     //enter your code here and don't forget to send the output to the DOM
+    switch(true)
+    {
+        case boolPrinting == true && boolRedLight == true && boolRecognised == true:
+            stringOutput = stringMessage2 + stringMessage3 + stringMessage4; //TTT
+            break;
+        case boolPrinting == true && boolRedLight == true && boolRecognised == false:
+            stringOutput = stringMessage4 + stringMessage5; //TTF
+            break; 
+        case boolPrinting == true && boolRedLight == false && boolRecognised == true:
+            stringOutput = stringMessage1 + stringMessage2 + stringMessage3; //TFT
+            break; 
+        case boolPrinting == true && boolRedLight == false && boolRecognised == false:
+            stringOutput = stringMessage5; //TFF
+            break;
+        case boolPrinting == false && boolRedLight == true && boolRecognised == true:
+            stringOutput = stringMessage3 + stringMessage4; //FTT
+            break;
+        case boolPrinting == false && boolRedLight == true && boolRecognised == false:
+            stringOutput = stringMessage4; //FTF
+            break;
+        case boolPrinting == false && boolRedLight == false && boolRecognised == true:
+            stringOutput = stringMessage3; //FFT
+            break;
+        case boolPrinting == false && boolRedLight == false && boolRecognised == false:
+            stringOutput = stringMessage6; //FFF
+            break;
+    }
+    $("output").value = stringOutput;
+}
 
 window.onload = function () {
     $("troubleshoot").onclick = fixPrinter;
-};
-
-
+}
